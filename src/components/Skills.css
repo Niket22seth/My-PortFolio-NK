@@ -1,0 +1,57 @@
+/* src/components/Skills.css */
+
+.skills {
+  padding: var(--space-section) 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.skills__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.skills__heading h2 {
+  font-size: var(--text-xl);
+}
+
+.skills__subtitle {
+  color: var(--ink-muted);
+  margin: 0.75rem 0 2.5rem;
+}
+
+.skills-slide__category {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.skills-slide__chip-wrap {
+  flex-shrink: 0;
+}
+
+.skills-slide__chip {
+  display: inline-block;
+  font-size: var(--text-sm);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.55rem 0.9rem;
+  white-space: nowrap;
+}
+
+/* reduced motion: MarqueeStrip's own static fallback defaults to a grid
+   sized for wide project cards — override for small chips here */
+.skills-slide .marquee--static {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+/* static (reduced-motion) fallback needs its own category label spacing since
+   RotatingShowcase's static mode stacks every category's render() output */
+.rotating-showcase--static .skills-slide__category {
+  margin-bottom: 0.9rem;
+}

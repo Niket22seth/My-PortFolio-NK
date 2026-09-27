@@ -1,0 +1,103 @@
+/* src/components/RotatingShowcase.css */
+
+.rotating-showcase {
+  position: relative;
+  min-height: 180px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2rem clamp(1.5rem, 4vw, 2.5rem);
+  background: var(--paper-raised);
+}
+
+.rotating-showcase__item {
+  animation: showcase-slide-in var(--dur-base) var(--ease) forwards;
+}
+
+.rotating-showcase__item--leaving {
+  position: absolute;
+  inset: 2rem clamp(1.5rem, 4vw, 2.5rem);
+  animation: showcase-fade-out var(--dur-base) var(--ease) forwards;
+  pointer-events: none;
+}
+
+@keyframes showcase-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.rotating-showcase__item--from-right {
+  animation-name: showcase-slide-in-right;
+}
+
+.rotating-showcase__item--from-left {
+  animation-name: showcase-slide-in-left;
+}
+
+@keyframes showcase-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes showcase-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.rotating-showcase__dots {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.rotating-showcase__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+
+.rotating-showcase__dot--active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+/* Reduced motion: everything listed at once, no timers, no animation */
+.rotating-showcase--static {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-height: 0;
+  padding: 1.5rem clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.rotating-showcase__static-item {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.rotating-showcase__static-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}

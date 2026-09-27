@@ -1,0 +1,62 @@
+/* src/components/Education.css */
+
+.education {
+  padding: clamp(3rem, 6vw, 4.5rem) 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.education__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.education__inner h2 {
+  font-size: var(--text-lg);
+  margin-bottom: 1.5rem;
+}
+
+.education__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.education__degree {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+}
+
+.education__school {
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.education__dates {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.education__areas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.education__areas li {
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+}

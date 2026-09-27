@@ -1,0 +1,54 @@
+/* src/components/MarqueeStrip.css */
+
+.marquee {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  /* native horizontal touch scrolling; blocks the browser from also
+     trying to interpret the drag as a vertical-page-scroll gesture */
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 40px,
+    black calc(100% - 40px),
+    transparent 100%
+  );
+}
+
+.marquee::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge */
+}
+
+.marquee--dragging {
+  cursor: grabbing;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee__set {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 1.5rem; /* gap between the end of one set and the start of its duplicate */
+}
+
+/* Reduced motion: no duplication, no scroll — a normal wrapping grid */
+.marquee--static {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}

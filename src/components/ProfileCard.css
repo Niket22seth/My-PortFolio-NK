@@ -1,0 +1,98 @@
+/* src/components/ProfileCard.css */
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
+.profile-card__lanyard {
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+  border-radius: 2px;
+}
+
+.profile-card__badge {
+  width: min(260px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  background: var(--paper-raised);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 60px var(--shadow-color), 0 0 40px var(--glow-color);
+  transition: transform var(--dur-base) var(--ease);
+}
+
+.profile-card__badge:hover {
+  transform: translateY(-3px) rotate(-0.5deg);
+}
+
+.profile-card__photo-wrap {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  margin-bottom: 1.1rem;
+  position: relative;
+}
+
+.profile-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-card__photo-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.profile-card__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--ink);
+  margin: 0 0 0.3rem;
+}
+
+.profile-card__role {
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  margin: 0 0 1.25rem;
+}
+
+.profile-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.profile-card__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80;
+}

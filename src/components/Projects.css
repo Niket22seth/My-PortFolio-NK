@@ -1,0 +1,226 @@
+/* src/components/Projects.css */
+
+.projects {
+  padding: var(--space-section) 0;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.projects__heading {
+  max-width: var(--content-max);
+  margin: 0 auto 2.5rem;
+  padding: 0 1.5rem;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity var(--dur-base) var(--ease),
+    transform var(--dur-base) var(--ease);
+}
+
+.projects--visible .projects__heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projects__heading h2 {
+  font-size: var(--text-xl);
+}
+
+.projects__subtitle {
+  color: var(--ink-muted);
+  margin: 0.75rem 0 0;
+  max-width: var(--measure);
+}
+
+.projects .marquee {
+  opacity: 0;
+  transition: opacity 420ms var(--ease);
+  transition-delay: 120ms;
+  padding-left: max(1.5rem, calc((100vw - var(--content-max)) / 2));
+}
+
+.projects--visible .marquee {
+  opacity: 1;
+}
+
+.project-card-wrap {
+  width: min(340px, 82vw);
+  flex-shrink: 0;
+}
+
+.project-card {
+  height: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper-raised);
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+.project-card__image {
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, var(--accent-dim), var(--paper-raised));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-card__image-glyph {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: transform var(--dur-base) var(--ease);
+}
+
+.project-card:hover .project-card__image-glyph {
+  transform: scale(1.04);
+}
+
+.project-card__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin: 0 0 0.6rem;
+}
+
+.project-card__desc {
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.project-card__features {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.project-card__features li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: var(--text-sm);
+  color: var(--ink);
+}
+
+.project-card__features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.project-card__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.project-card__tags li {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.25rem 0.55rem;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+.project-card:hover .project-card__tags li {
+  border-color: var(--accent);
+  color: var(--ink);
+}
+
+.project-card__actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.project-card__link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ink-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.project-card__link svg {
+  font-size: 1.05rem;
+}
+
+.project-card__link:hover {
+  color: var(--ink);
+}
+
+.project-card__link--details {
+  margin-left: auto;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+
+.project-card__arrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.project-card__link--details:hover .project-card__arrow {
+  transform: translateX(3px);
+}
+
+/* reduced-motion fallback grid needs the card wrap to behave like a grid item, not a flex-fixed-width strip item */
+@media (prefers-reduced-motion: reduce) {
+  .project-card-wrap {
+    width: auto;
+  }
+
+  .projects__heading,
+  .projects .marquee {
+    opacity: 1;
+    transform: none;
+  }
+}
