@@ -25,14 +25,14 @@ const CERTIFICATIONS = [
     url: "https://drive.google.com/file/d/1l6PEpWLK8WvdXhOiAHDxZfhyges3NtFk/view?usp=drivesdk",
     image: "Image/Aws Foundation.jpg",
   },
-  // {
-  //   key: "data-analyst",
-  //   name: "Data Analyst",
-  //   issuer: "",
-  //   year: "",
-  //   url: "",
-  //   image: "",
-  // },
+  {
+    key: "data-analyst",
+    name: "Data Analyst",
+    issuer: "",
+    year: "",
+    url: "",
+    image: "",
+  },
 ];
 
 export default function Certifications() {
